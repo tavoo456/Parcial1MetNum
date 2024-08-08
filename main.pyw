@@ -11,7 +11,8 @@ class MetodosNumericos(QMainWindow):
         self.ui.btnCalcularBiseccion.clicked.connect(self.biseccion)
         self.ui.btnCalcularFalsaPosicion.clicked.connect(self.falsa_posicion)
         self.center()
-        
+    
+    #Esta función centra el form en la pantalla
     def center(self):
         screen = QApplication.primaryScreen()
         screen_rect = screen.availableGeometry()
