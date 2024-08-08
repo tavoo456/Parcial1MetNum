@@ -10,33 +10,42 @@ class MetodosNumericos(QMainWindow):
         self.ui.setupUi(self)
         self.ui.btnCalcularBiseccion.clicked.connect(self.biseccion)
         self.ui.btnCalcularFalsaPosicion.clicked.connect(self.falsa_posicion)
+        self.center()
+        
+    def center(self):
+        screen = QApplication.primaryScreen()
+        screen_rect = screen.availableGeometry()
+        size = self.geometry()
+        
+        x = (screen_rect.width() - size.width()) / 2
+        y = (screen_rect.height() - size.height()) / 2
+        
+        self.move(x, y)
     
-    def biseccion(self):       
+    def biseccion(self):
+        #-0.6*x**2 + 2.4*x + 5.5       
         funcion = self.ui.txtFuncionMA.text()
         
-        a = float(self.ui.txtA.text())
-        b = float(self.ui.txtB.text())
-        tolerancia = float(self.ui.txtTolerancia.text())
+        a = round(float(self.ui.txtA.text()), 7)
+        b = round(float(self.ui.txtB.text()), 7)
+        tolerancia = round(float(self.ui.txtTolerancia.text()), 7)
         
         iMax = int(self.ui.txtNIteraciones.text())
 
         error = 100
         i = 1
-        
-        #-0.6*x**2 + 2.4*x + 5.5
-        #"{0:.7f}".format(a)
-        
+            
         self.ui.twBiseccion.setRowCount(0)
         
         while error > tolerancia and i <= iMax: 
             m = (a + b) / 2
 
-            fa = eval(funcion, {"x": a})
-            fb = eval(funcion, {"x": b})
-            fm = eval(funcion, {"x": m})
+            fa = round(eval(funcion, {"x": a}), 7)
+            fb = round(eval(funcion, {"x": b}), 7)
+            fm = round(eval(funcion, {"x": m}), 7)
 
-            error = abs((b - a) / 2) * 100
-            
+            error = round(abs((b - a) / 2) * 100, 7)
+                        
             self.AñadirDatosBiseccion([i, a, b, m, fa, fb, fm, error])
             
             if fa * fm < 0:
@@ -57,32 +66,29 @@ class MetodosNumericos(QMainWindow):
     def falsa_posicion(self):
         funcion = self.ui.txtFuncionMA.text()
         
-        a = float(self.ui.txtA.text())
-        b = float(self.ui.txtB.text())
-        tolerancia = float(self.ui.txtTolerancia.text())
+        a = round(float(self.ui.txtA.text()), 7)
+        b = round(float(self.ui.txtB.text()), 7)
+        tolerancia = round(float(self.ui.txtTolerancia.text()), 7)
         
         iMax = int(self.ui.txtNIteraciones.text())
 
         error = 100
         xrAnterior = 0
-        i = 1           
-        
-        #-0.6*x**2 + 2.4*x + 5.5
-        #"{0:.7f}".format(a)
-        
+        i = 1                  
+             
         self.ui.twFalsaPosicion.setRowCount(0)
         
         while error > tolerancia and i <= iMax: 
-            fa = eval(funcion, {"x": a})
-            fb = eval(funcion, {"x": b})
+            fa = round(eval(funcion, {"x": a}), 7)
+            fb = round(eval(funcion, {"x": b}), 7)
             
-            xr = b - (fb*(b - a))/(fb - fa)        
+            xr = round(b - (fb*(b - a))/(fb - fa), 7)       
 
-            error = abs((xr - xrAnterior)/xr) * 100
+            error = round(abs((xr - xrAnterior)/xr) * 100, 7)
             
             xrAnterior = xr
             
-            fxr = eval(funcion, {"x": xr})
+            fxr = round(eval(funcion, {"x": xr}), 7)
             
             self.AñadirDatosFalsaPosicion([i, a, b, xr, fa, fb, fxr, error])
             
