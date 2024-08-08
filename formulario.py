@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario PacialJNERBp.ui'
+## Form generated from reading UI file 'Formulario PacialRglAJl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -100,6 +100,7 @@ class Ui_MainWindow(object):
         self.twBiseccion.setHorizontalHeaderItem(7, __qtablewidgetitem7)
         self.twBiseccion.setObjectName(u"twBiseccion")
         self.twBiseccion.setGeometry(QRect(0, 60, 1240, 350))
+        self.twBiseccion.setFont(font)
         self.twBiseccion.setColumnCount(8)
         self.twBiseccion.horizontalHeader().setCascadingSectionResizes(True)
         self.twBiseccion.horizontalHeader().setDefaultSectionSize(154)
@@ -161,7 +162,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.tabWidget.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
