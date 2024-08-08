@@ -16,8 +16,8 @@ class MetodosNumericos(QMainWindow):
         
         a = float(self.ui.txtA.text())
         b = float(self.ui.txtB.text())
-
-        tolerancia = int(self.ui.txtTolerancia.text())
+        tolerancia = float(self.ui.txtTolerancia.text())
+        
         iMax = int(self.ui.txtNIteraciones.text())
 
         error = 100
@@ -59,8 +59,8 @@ class MetodosNumericos(QMainWindow):
         
         a = float(self.ui.txtA.text())
         b = float(self.ui.txtB.text())
-
-        tolerancia = int(self.ui.txtTolerancia.text())
+        tolerancia = float(self.ui.txtTolerancia.text())
+        
         iMax = int(self.ui.txtNIteraciones.text())
 
         error = 100
