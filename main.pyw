@@ -29,9 +29,9 @@ class MetodosNumericos(QMainWindow):
         
         a = round(float(self.ui.txtA.text()), 7)
         b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtTolerancia.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
         
-        iMax = int(self.ui.txtNIteraciones.text())
+        iMax = int(self.ui.txtNIteracionesMA.text())
 
         error = 100
         i = 1
@@ -69,9 +69,9 @@ class MetodosNumericos(QMainWindow):
         
         a = round(float(self.ui.txtA.text()), 7)
         b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtTolerancia.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
         
-        iMax = int(self.ui.txtNIteraciones.text())
+        iMax = int(self.ui.txtNIteracionesMA.text())
 
         error = 100
         xrAnterior = 0
