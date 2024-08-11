@@ -25,13 +25,13 @@ class MetodosNumericos(QMainWindow):
     
     def biseccion(self):
         #-0.6*x**2 + 2.4*x + 5.5       
-        funcion = self.ui.txtFuncionMA.text()
+        funcion = self.ui.txtFuncionMC.text()
         
         a = round(float(self.ui.txtA.text()), 7)
         b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
         
-        iMax = int(self.ui.txtNIteracionesMA.text())
+        iMax = int(self.ui.txtNIteracionesMC.text())
 
         error = 100
         i = 1
@@ -39,7 +39,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.twBiseccion.setRowCount(0)
         
         while error > tolerancia and i <= iMax: 
-            m = (a + b) / 2
+            m = round((a + b) / 2, 7)
 
             fa = round(eval(funcion, {"x": a}), 7)
             fb = round(eval(funcion, {"x": b}), 7)
@@ -47,7 +47,7 @@ class MetodosNumericos(QMainWindow):
 
             error = round(abs((b - a) / 2) * 100, 7)
                         
-            self.AñadirDatosBiseccion([i, a, b, m, fa, fb, fm, error])
+            self.añadir_datos_biseccion([i, a, b, m, fa, fb, fm, error])
             
             if fa * fm < 0:
                 b = m
@@ -56,7 +56,7 @@ class MetodosNumericos(QMainWindow):
             
             i += 1            
 
-    def AñadirDatosBiseccion(self, datos):
+    def añadir_datos_biseccion(self, datos):
         fila = self.ui.twBiseccion.rowCount()
 
         self.ui.twBiseccion.insertRow(fila)
@@ -65,13 +65,13 @@ class MetodosNumericos(QMainWindow):
             self.ui.twBiseccion.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def falsa_posicion(self):
-        funcion = self.ui.txtFuncionMA.text()
+        funcion = self.ui.txtFuncionMC.text()
         
         a = round(float(self.ui.txtA.text()), 7)
         b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
         
-        iMax = int(self.ui.txtNIteracionesMA.text())
+        iMax = int(self.ui.txtNIteracionesMC.text())
 
         error = 100
         xrAnterior = 0
@@ -91,7 +91,7 @@ class MetodosNumericos(QMainWindow):
             
             fxr = round(eval(funcion, {"x": xr}), 7)
             
-            self.AñadirDatosFalsaPosicion([i, a, b, xr, fa, fb, fxr, error])
+            self.añadir_datos_falsa_posicion([i, a, b, xr, fa, fb, fxr, error])
             
             if fa * fxr < 0:
                 b = xr
@@ -100,14 +100,19 @@ class MetodosNumericos(QMainWindow):
             
             i += 1
             
-    def AñadirDatosFalsaPosicion(self, datos):
+    def añadir_datos_falsa_posicion(self, datos):
         fila = self.ui.twFalsaPosicion.rowCount()
 
         self.ui.twFalsaPosicion.insertRow(fila)
 
         for columna, value in enumerate(datos):
             self.ui.twFalsaPosicion.setItem(fila, columna, QTableWidgetItem(str(value)))
-
+            
+    def punto_fijo(self):
+        funcion = self.ui.txtFuncionMA.text()
+        funcion = funcion + " + x"
+        
+        
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myapp = MetodosNumericos() 
