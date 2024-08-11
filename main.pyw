@@ -10,6 +10,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.setupUi(self)
         self.ui.btnCalcularBiseccion.clicked.connect(self.biseccion)
         self.ui.btnCalcularFalsaPosicion.clicked.connect(self.falsa_posicion)
+        self.ui.btnCalcularPuntoFijo.clicked.connect(self.punto_fijo)
         self.center()
     
     #Esta función centra el form en la pantalla
@@ -112,6 +113,33 @@ class MetodosNumericos(QMainWindow):
         funcion = self.ui.txtFuncionMA.text()
         funcion = funcion + " + x"
         
+        xActual = round(float(self.ui.txtAproximacionInicial.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        
+        iMax = int(self.ui.txtNIteracionesMA.text())
+
+        error = 100
+        xAnterior = 0.0
+        i = 1
+        
+        while error > tolerancia and i <= iMax: 
+            resultado = round(eval(funcion, {"x": xActual}), 7)
+            xActual = resultado
+            
+            error = abs((xActual - xAnterior)/xActual) * 100
+            
+            self.añadir_datos_punto_fijo([i, xActual, xAnterior, error])
+            xAnterior = xActual
+                        
+            i += 1
+    
+    def añadir_datos_punto_fijo(self, datos):
+        fila = self.ui.twPuntoFijo.rowCount()
+
+        self.ui.twPuntoFijo.insertRow(fila)
+
+        for columna, value in enumerate(datos):
+            self.ui.twPuntoFijo.setItem(fila, columna, QTableWidgetItem(str(value)))       
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario PacialRpdeeS.ui'
+## Form generated from reading UI file 'Formulario PacialSbxHrs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -174,10 +174,20 @@ class Ui_MainWindow(object):
         self.btnCalcularPuntoFijo.setGeometry(QRect(40, 10, 241, 45))
         self.btnCalcularPuntoFijo.setFont(font)
         self.twPuntoFijo = QTableWidget(self.tab_3)
+        if (self.twPuntoFijo.columnCount() < 4):
+            self.twPuntoFijo.setColumnCount(4)
+        __qtablewidgetitem16 = QTableWidgetItem()
+        self.twPuntoFijo.setHorizontalHeaderItem(0, __qtablewidgetitem16)
+        __qtablewidgetitem17 = QTableWidgetItem()
+        self.twPuntoFijo.setHorizontalHeaderItem(1, __qtablewidgetitem17)
+        __qtablewidgetitem18 = QTableWidgetItem()
+        self.twPuntoFijo.setHorizontalHeaderItem(2, __qtablewidgetitem18)
+        __qtablewidgetitem19 = QTableWidgetItem()
+        self.twPuntoFijo.setHorizontalHeaderItem(3, __qtablewidgetitem19)
         self.twPuntoFijo.setObjectName(u"twPuntoFijo")
         self.twPuntoFijo.setGeometry(QRect(0, 60, 1240, 350))
         self.twPuntoFijo.setFont(font)
-        self.twPuntoFijo.setColumnCount(0)
+        self.twPuntoFijo.setColumnCount(4)
         self.twPuntoFijo.horizontalHeader().setCascadingSectionResizes(True)
         self.twPuntoFijo.horizontalHeader().setDefaultSectionSize(154)
         self.twPuntoFijo.horizontalHeader().setHighlightSections(False)
@@ -335,6 +345,14 @@ class Ui_MainWindow(object):
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Ejemplo: x**5 + x**2 - 3*x + 1", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"M\u00e9todos Cerrados", None))
         self.btnCalcularPuntoFijo.setText(QCoreApplication.translate("MainWindow", u"Calcular por Punto Fijo", None))
+        ___qtablewidgetitem16 = self.twPuntoFijo.horizontalHeaderItem(0)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 de iteraci\u00f3n", None));
+        ___qtablewidgetitem17 = self.twPuntoFijo.horizontalHeaderItem(1)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Xo", None));
+        ___qtablewidgetitem18 = self.twPuntoFijo.horizontalHeaderItem(2)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
+        ___qtablewidgetitem19 = self.twPuntoFijo.horizontalHeaderItem(3)
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"E", None));
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"M\u00e9todo del punto fijo", None))
         self.btnCalcularNewtonRaphson.setText(QCoreApplication.translate("MainWindow", u"Calcular por Newton Raphson", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Newton Raphson", None))
