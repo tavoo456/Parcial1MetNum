@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario PacialSbxHrs.ui'
+## Form generated from reading UI file 'Formulario ParcialsNBxsQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -200,10 +200,20 @@ class Ui_MainWindow(object):
         self.btnCalcularNewtonRaphson.setGeometry(QRect(40, 10, 311, 45))
         self.btnCalcularNewtonRaphson.setFont(font)
         self.twNewtonRaphson = QTableWidget(self.tab_4)
+        if (self.twNewtonRaphson.columnCount() < 4):
+            self.twNewtonRaphson.setColumnCount(4)
+        __qtablewidgetitem20 = QTableWidgetItem()
+        self.twNewtonRaphson.setHorizontalHeaderItem(0, __qtablewidgetitem20)
+        __qtablewidgetitem21 = QTableWidgetItem()
+        self.twNewtonRaphson.setHorizontalHeaderItem(1, __qtablewidgetitem21)
+        __qtablewidgetitem22 = QTableWidgetItem()
+        self.twNewtonRaphson.setHorizontalHeaderItem(2, __qtablewidgetitem22)
+        __qtablewidgetitem23 = QTableWidgetItem()
+        self.twNewtonRaphson.setHorizontalHeaderItem(3, __qtablewidgetitem23)
         self.twNewtonRaphson.setObjectName(u"twNewtonRaphson")
         self.twNewtonRaphson.setGeometry(QRect(0, 60, 1240, 350))
         self.twNewtonRaphson.setFont(font)
-        self.twNewtonRaphson.setColumnCount(0)
+        self.twNewtonRaphson.setColumnCount(4)
         self.twNewtonRaphson.horizontalHeader().setCascadingSectionResizes(True)
         self.twNewtonRaphson.horizontalHeader().setDefaultSectionSize(154)
         self.twNewtonRaphson.horizontalHeader().setHighlightSections(False)
@@ -290,9 +300,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.tabWidget_2.setCurrentIndex(0)
-        self.tabWidget_3.setCurrentIndex(0)
+        self.tabWidget_3.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -355,6 +365,14 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"E", None));
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"M\u00e9todo del punto fijo", None))
         self.btnCalcularNewtonRaphson.setText(QCoreApplication.translate("MainWindow", u"Calcular por Newton Raphson", None))
+        ___qtablewidgetitem20 = self.twNewtonRaphson.horizontalHeaderItem(0)
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"N de iteracion", None));
+        ___qtablewidgetitem21 = self.twNewtonRaphson.horizontalHeaderItem(1)
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Xr", None));
+        ___qtablewidgetitem22 = self.twNewtonRaphson.horizontalHeaderItem(2)
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Xo", None));
+        ___qtablewidgetitem23 = self.twNewtonRaphson.horizontalHeaderItem(3)
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Newton Raphson", None))
         self.btnCalcularSecante.setText(QCoreApplication.translate("MainWindow", u"Calcular por Secante", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), QCoreApplication.translate("MainWindow", u"M\u00e9todo de la Secante", None))

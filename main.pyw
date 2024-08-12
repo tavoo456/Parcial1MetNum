@@ -2,6 +2,7 @@ from PySide6.QtWidgets import *
 from formulario import * 
 from PySide6 import *
 import sys
+import sympy 
 
 class MetodosNumericos(QMainWindow):
     def __init__(self):
@@ -11,6 +12,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.btnCalcularBiseccion.clicked.connect(self.biseccion)
         self.ui.btnCalcularFalsaPosicion.clicked.connect(self.falsa_posicion)
         self.ui.btnCalcularPuntoFijo.clicked.connect(self.punto_fijo)
+        self.ui.btnCalcularNewtonRaphson.clicked.connect(self.newton_raphson)
         self.center()
     
     #Esta función centra el form en la pantalla
@@ -33,10 +35,9 @@ class MetodosNumericos(QMainWindow):
         tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
         
         iMax = int(self.ui.txtNIteracionesMC.text())
-
         error = 100
         i = 1
-            
+        
         self.ui.twBiseccion.setRowCount(0)
         
         while error > tolerancia and i <= iMax: 
@@ -47,7 +48,7 @@ class MetodosNumericos(QMainWindow):
             fm = round(eval(funcion, {"x": m}), 7)
 
             error = round(abs((b - a) / 2) * 100, 7)
-                        
+            
             self.añadir_datos_biseccion([i, a, b, m, fa, fb, fm, error])
             
             if fa * fm < 0:
@@ -73,11 +74,11 @@ class MetodosNumericos(QMainWindow):
         tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
         
         iMax = int(self.ui.txtNIteracionesMC.text())
-
+        
         error = 100
         xrAnterior = 0
         i = 1                  
-             
+        
         self.ui.twFalsaPosicion.setRowCount(0)
         
         while error > tolerancia and i <= iMax: 
@@ -85,7 +86,6 @@ class MetodosNumericos(QMainWindow):
             fb = round(eval(funcion, {"x": b}), 7)
             
             xr = round(b - (fb*(b - a))/(fb - fa), 7)       
-
             error = round(abs((xr - xrAnterior)/xr) * 100, 7)
             
             xrAnterior = xr
@@ -135,12 +135,43 @@ class MetodosNumericos(QMainWindow):
     
     def añadir_datos_punto_fijo(self, datos):
         fila = self.ui.twPuntoFijo.rowCount()
-
+        
         self.ui.twPuntoFijo.insertRow(fila)
-
+        
         for columna, value in enumerate(datos):
             self.ui.twPuntoFijo.setItem(fila, columna, QTableWidgetItem(str(value)))       
         
+    def newton_raphson(self):
+        #x**5 + 3*x**2 + x
+        funcion = self.ui.txtFuncionMA.text()      
+        xo = round(float(self.ui.txtAproximacionInicial.text()), 7)
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)       
+        iMax = int(self.ui.txtNIteracionesMA.text())
+        error = 100
+        xAnterior = 0.0
+        i = 1
+        while error > tolerancia and i <= iMax: 
+            resultado = round(eval(funcion, {"x": xo}), 7)
+            #x = sympy.symbols('x', real=True) # define la variable simbólica x
+            #diff sirve para sacar la derivada
+            derivada = sympy.diff(funcion,"x")
+            resultado_der = round(eval(str(derivada), {"x": xo}),7)
+            xr = round(xo - (resultado/resultado_der),7)      
+            
+            error = round(abs((xr - xo)/xr) * 100,7)
+            #error = abs((xActual - xAnterior)/xActual) * 100
+            self.añadir_datos_newton_raphson([i, xr, xo, error])
+            xo = xr      
+            i += 1
+    
+    def añadir_datos_newton_raphson(self, datos):
+        fila = self.ui.twNewtonRaphson.rowCount()
+        
+        self.ui.twNewtonRaphson.insertRow(fila)
+        
+        for columna, value in enumerate(datos):
+            self.ui.twNewtonRaphson.setItem(fila, columna, QTableWidgetItem(str(value)))  
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myapp = MetodosNumericos() 
