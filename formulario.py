@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario ParcialsNBxsQ.ui'
+## Form generated from reading UI file 'Formulario ParcialedqcxR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -192,6 +192,14 @@ class Ui_MainWindow(object):
         self.twPuntoFijo.horizontalHeader().setDefaultSectionSize(154)
         self.twPuntoFijo.horizontalHeader().setHighlightSections(False)
         self.twPuntoFijo.horizontalHeader().setStretchLastSection(False)
+        self.label_14 = QLabel(self.tab_3)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(360, 10, 361, 21))
+        self.label_14.setFont(font)
+        self.label_15 = QLabel(self.tab_3)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setGeometry(QRect(360, 30, 361, 21))
+        self.label_15.setFont(font)
         self.tabWidget_3.addTab(self.tab_3, "")
         self.tab_4 = QWidget()
         self.tab_4.setObjectName(u"tab_4")
@@ -300,9 +308,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
-        self.tabWidget_3.setCurrentIndex(1)
+        self.tabWidget_3.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -363,6 +371,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
         ___qtablewidgetitem19 = self.twPuntoFijo.horizontalHeaderItem(3)
         ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"E", None));
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Para obtener resultado satisfactorios", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"ingrese la funci\u00f3n despejada", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"M\u00e9todo del punto fijo", None))
         self.btnCalcularNewtonRaphson.setText(QCoreApplication.translate("MainWindow", u"Calcular por Newton Raphson", None))
         ___qtablewidgetitem20 = self.twNewtonRaphson.horizontalHeaderItem(0)

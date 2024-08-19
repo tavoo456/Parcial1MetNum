@@ -111,25 +111,26 @@ class MetodosNumericos(QMainWindow):
             
     def punto_fijo(self):
         funcion = self.ui.txtFuncionMA.text()
-        funcion = funcion + " + x"
-        
-        xActual = round(float(self.ui.txtAproximacionInicial.text()), 7)
+            
+        Xo = round(float(self.ui.txtAproximacionInicial.text()), 7)        
         tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
         
         iMax = int(self.ui.txtNIteracionesMA.text())
 
+        Xi = 0
         error = 100
-        xAnterior = 0.0
         i = 1
         
+        self.ui.twPuntoFijo.setRowCount(0)
+        
         while error > tolerancia and i <= iMax: 
-            resultado = round(eval(funcion, {"x": xActual}), 7)
-            xActual = resultado
+            Xi = round(eval(funcion, {"x": Xo}), 7)
             
-            error = abs((xActual - xAnterior)/xActual) * 100
+            error = round(abs(((Xi - Xo)/Xi)*100), 7)
             
-            self.añadir_datos_punto_fijo([i, xActual, xAnterior, error])
-            xAnterior = xActual
+            self.añadir_datos_punto_fijo([i, Xo, Xi, error])
+            
+            Xo = Xi
                         
             i += 1
     
