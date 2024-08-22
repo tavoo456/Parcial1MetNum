@@ -31,7 +31,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -338,7 +338,7 @@
         </column>
         <column>
          <property name="text">
-          <string>E</string>
+          <string>Error</string>
          </property>
         </column>
        </widget>
@@ -440,7 +440,7 @@
         </column>
         <column>
          <property name="text">
-          <string>E</string>
+          <string>Error</string>
          </property>
         </column>
        </widget>
@@ -501,7 +501,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -550,7 +550,7 @@
          <bool>true</bool>
         </attribute>
         <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>154</number>
+         <number>310</number>
         </attribute>
         <attribute name="horizontalHeaderHighlightSections">
          <bool>false</bool>
@@ -575,7 +575,7 @@
         </column>
         <column>
          <property name="text">
-          <string>E</string>
+          <string>Error</string>
          </property>
         </column>
        </widget>
@@ -667,7 +667,7 @@
          <bool>true</bool>
         </attribute>
         <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>154</number>
+         <number>310</number>
         </attribute>
         <attribute name="horizontalHeaderHighlightSections">
          <bool>false</bool>
@@ -677,7 +677,7 @@
         </attribute>
         <column>
          <property name="text">
-          <string>N de iteracion</string>
+          <string>N° de iteración</string>
          </property>
         </column>
         <column>
@@ -738,13 +738,13 @@
          </font>
         </property>
         <property name="columnCount">
-         <number>0</number>
+         <number>7</number>
         </property>
         <attribute name="horizontalHeaderCascadingSectionResizes">
          <bool>true</bool>
         </attribute>
         <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>154</number>
+         <number>177</number>
         </attribute>
         <attribute name="horizontalHeaderHighlightSections">
          <bool>false</bool>
@@ -752,6 +752,71 @@
         <attribute name="horizontalHeaderStretchLastSection">
          <bool>false</bool>
         </attribute>
+        <column>
+         <property name="text">
+          <string>N° de Iteracion</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi-1</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>f(Xi-1)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>f(Xi)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi+1</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Error</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>20</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ingrese Xi-1:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtXi_1">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>20</y>
+          <width>110</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat Medium</family>
+          <pointsize>14</pointsize>
+          <italic>false</italic>
+         </font>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_8">
@@ -795,7 +860,7 @@
          </font>
         </property>
         <property name="columnCount">
-         <number>0</number>
+         <number>8</number>
         </property>
         <attribute name="horizontalHeaderCascadingSectionResizes">
          <bool>true</bool>
@@ -809,6 +874,76 @@
         <attribute name="horizontalHeaderStretchLastSection">
          <bool>false</bool>
         </attribute>
+        <column>
+         <property name="text">
+          <string>N° de Iteración</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>dxi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi + dxi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>f(Xi)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>f(Xi + dxi)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi+1</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Error</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLineEdit" name="txtdxi">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>20</y>
+          <width>110</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat Medium</family>
+          <pointsize>14</pointsize>
+          <italic>false</italic>
+         </font>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>20</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ingrese dxi:</string>
+        </property>
        </widget>
       </widget>
      </widget>

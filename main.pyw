@@ -13,6 +13,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.btnCalcularFalsaPosicion.clicked.connect(self.falsa_posicion)
         self.ui.btnCalcularPuntoFijo.clicked.connect(self.punto_fijo)
         self.ui.btnCalcularNewtonRaphson.clicked.connect(self.newton_raphson)
+        self.ui.btnCalcularSecante.clicked.connect(self.secante)
         self.center()
     
     #Esta función centra el form en la pantalla
@@ -151,6 +152,9 @@ class MetodosNumericos(QMainWindow):
         error = 100
         xAnterior = 0.0
         i = 1
+        
+        self.ui.twNewtonRaphson.setRowCount(0)
+        
         while error > tolerancia and i <= iMax: 
             resultado = round(eval(funcion, {"x": xo}), 7)
             #x = sympy.symbols('x', real=True) # define la variable simbólica x
@@ -172,6 +176,46 @@ class MetodosNumericos(QMainWindow):
         
         for columna, value in enumerate(datos):
             self.ui.twNewtonRaphson.setItem(fila, columna, QTableWidgetItem(str(value)))
+            
+    def secante(self):
+        funcion = self.ui.txtFuncionMA.text()
+            
+        Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)
+        #X_i = Xi-1
+        X_i = round(float(self.ui.txtXi_1.text()), 7)    
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        
+        iMax = int(self.ui.txtNIteracionesMA.text())
+
+        #X__i = Xi+1
+        X__i = 0
+        error = 100
+        i = 1
+        
+        self.ui.twSecante.setRowCount(0)
+        
+        while error > tolerancia and i <= iMax: 
+            fxi = round(eval(funcion, {"x": Xi}), 7)
+            fx_i = round(eval(funcion, {"x": X_i}), 7)
+            
+            X__i = round(Xi - (fxi*(X_i-Xi))/(fx_i-fxi), 7)
+            
+            error = round((abs((X__i-Xi)/X__i))*100, 7)
+            
+            self.añadir_datos_secante([i, X_i, Xi, fx_i, fxi, X__i, error])
+            
+            X_i = Xi
+            Xi = X__i
+                
+            i += 1
+
+    def añadir_datos_secante(self, datos):
+        fila = self.ui.twSecante.rowCount()
+        
+        self.ui.twSecante.insertRow(fila)
+        
+        for columna, value in enumerate(datos):
+            self.ui.twSecante.setItem(fila, columna, QTableWidgetItem(str(value)))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

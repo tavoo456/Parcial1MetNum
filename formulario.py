@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario ParcialedqcxR.ui'
+## Form generated from reading UI file 'Formulario ParcialgXwOnV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
         self.twPuntoFijo.setFont(font)
         self.twPuntoFijo.setColumnCount(4)
         self.twPuntoFijo.horizontalHeader().setCascadingSectionResizes(True)
-        self.twPuntoFijo.horizontalHeader().setDefaultSectionSize(154)
+        self.twPuntoFijo.horizontalHeader().setDefaultSectionSize(310)
         self.twPuntoFijo.horizontalHeader().setHighlightSections(False)
         self.twPuntoFijo.horizontalHeader().setStretchLastSection(False)
         self.label_14 = QLabel(self.tab_3)
@@ -223,7 +223,7 @@ class Ui_MainWindow(object):
         self.twNewtonRaphson.setFont(font)
         self.twNewtonRaphson.setColumnCount(4)
         self.twNewtonRaphson.horizontalHeader().setCascadingSectionResizes(True)
-        self.twNewtonRaphson.horizontalHeader().setDefaultSectionSize(154)
+        self.twNewtonRaphson.horizontalHeader().setDefaultSectionSize(310)
         self.twNewtonRaphson.horizontalHeader().setHighlightSections(False)
         self.twNewtonRaphson.horizontalHeader().setStretchLastSection(False)
         self.tabWidget_3.addTab(self.tab_4, "")
@@ -234,14 +234,37 @@ class Ui_MainWindow(object):
         self.btnCalcularSecante.setGeometry(QRect(40, 10, 311, 45))
         self.btnCalcularSecante.setFont(font)
         self.twSecante = QTableWidget(self.tab_7)
+        if (self.twSecante.columnCount() < 7):
+            self.twSecante.setColumnCount(7)
+        __qtablewidgetitem24 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(0, __qtablewidgetitem24)
+        __qtablewidgetitem25 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(1, __qtablewidgetitem25)
+        __qtablewidgetitem26 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(2, __qtablewidgetitem26)
+        __qtablewidgetitem27 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(3, __qtablewidgetitem27)
+        __qtablewidgetitem28 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(4, __qtablewidgetitem28)
+        __qtablewidgetitem29 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(5, __qtablewidgetitem29)
+        __qtablewidgetitem30 = QTableWidgetItem()
+        self.twSecante.setHorizontalHeaderItem(6, __qtablewidgetitem30)
         self.twSecante.setObjectName(u"twSecante")
         self.twSecante.setGeometry(QRect(0, 60, 1240, 350))
         self.twSecante.setFont(font)
-        self.twSecante.setColumnCount(0)
+        self.twSecante.setColumnCount(7)
         self.twSecante.horizontalHeader().setCascadingSectionResizes(True)
-        self.twSecante.horizontalHeader().setDefaultSectionSize(154)
+        self.twSecante.horizontalHeader().setDefaultSectionSize(177)
         self.twSecante.horizontalHeader().setHighlightSections(False)
         self.twSecante.horizontalHeader().setStretchLastSection(False)
+        self.label_16 = QLabel(self.tab_7)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setGeometry(QRect(370, 20, 121, 21))
+        self.txtXi_1 = QLineEdit(self.tab_7)
+        self.txtXi_1.setObjectName(u"txtXi_1")
+        self.txtXi_1.setGeometry(QRect(490, 20, 110, 20))
+        self.txtXi_1.setFont(font)
         self.tabWidget_3.addTab(self.tab_7, "")
         self.tab_8 = QWidget()
         self.tab_8.setObjectName(u"tab_8")
@@ -250,14 +273,39 @@ class Ui_MainWindow(object):
         self.btnCalcularSecanteModificada.setGeometry(QRect(40, 10, 331, 45))
         self.btnCalcularSecanteModificada.setFont(font)
         self.twSecanteModificada = QTableWidget(self.tab_8)
+        if (self.twSecanteModificada.columnCount() < 8):
+            self.twSecanteModificada.setColumnCount(8)
+        __qtablewidgetitem31 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(0, __qtablewidgetitem31)
+        __qtablewidgetitem32 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(1, __qtablewidgetitem32)
+        __qtablewidgetitem33 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(2, __qtablewidgetitem33)
+        __qtablewidgetitem34 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(3, __qtablewidgetitem34)
+        __qtablewidgetitem35 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(4, __qtablewidgetitem35)
+        __qtablewidgetitem36 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(5, __qtablewidgetitem36)
+        __qtablewidgetitem37 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(6, __qtablewidgetitem37)
+        __qtablewidgetitem38 = QTableWidgetItem()
+        self.twSecanteModificada.setHorizontalHeaderItem(7, __qtablewidgetitem38)
         self.twSecanteModificada.setObjectName(u"twSecanteModificada")
         self.twSecanteModificada.setGeometry(QRect(0, 60, 1240, 350))
         self.twSecanteModificada.setFont(font)
-        self.twSecanteModificada.setColumnCount(0)
+        self.twSecanteModificada.setColumnCount(8)
         self.twSecanteModificada.horizontalHeader().setCascadingSectionResizes(True)
         self.twSecanteModificada.horizontalHeader().setDefaultSectionSize(154)
         self.twSecanteModificada.horizontalHeader().setHighlightSections(False)
         self.twSecanteModificada.horizontalHeader().setStretchLastSection(False)
+        self.txtdxi = QLineEdit(self.tab_8)
+        self.txtdxi.setObjectName(u"txtdxi")
+        self.txtdxi.setGeometry(QRect(520, 20, 110, 20))
+        self.txtdxi.setFont(font)
+        self.label_17 = QLabel(self.tab_8)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setGeometry(QRect(390, 20, 121, 21))
         self.tabWidget_3.addTab(self.tab_8, "")
         self.txtFuncionMA = QLineEdit(self.tab_2)
         self.txtFuncionMA.setObjectName(u"txtFuncionMA")
@@ -339,7 +387,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem6 = self.twBiseccion.horizontalHeaderItem(6)
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"f(m)", None));
         ___qtablewidgetitem7 = self.twBiseccion.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"E", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.btnCalcularBiseccion.setText(QCoreApplication.translate("MainWindow", u"Calcular por Bisecci\u00f3n", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Bisecci\u00f3n", None))
         ___qtablewidgetitem8 = self.twFalsaPosicion.horizontalHeaderItem(0)
@@ -357,7 +405,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem14 = self.twFalsaPosicion.horizontalHeaderItem(6)
         ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"f(Xr)", None));
         ___qtablewidgetitem15 = self.twFalsaPosicion.horizontalHeaderItem(7)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"E", None));
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.btnCalcularFalsaPosicion.setText(QCoreApplication.translate("MainWindow", u"Calcular por Falsa Posici\u00f3n", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Falsa Posici\u00f3n", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Ejemplo: x**5 + x**2 - 3*x + 1", None))
@@ -370,13 +418,13 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem18 = self.twPuntoFijo.horizontalHeaderItem(2)
         ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
         ___qtablewidgetitem19 = self.twPuntoFijo.horizontalHeaderItem(3)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"E", None));
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Para obtener resultado satisfactorios", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"ingrese la funci\u00f3n despejada", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"M\u00e9todo del punto fijo", None))
         self.btnCalcularNewtonRaphson.setText(QCoreApplication.translate("MainWindow", u"Calcular por Newton Raphson", None))
         ___qtablewidgetitem20 = self.twNewtonRaphson.horizontalHeaderItem(0)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"N de iteracion", None));
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 de iteraci\u00f3n", None));
         ___qtablewidgetitem21 = self.twNewtonRaphson.horizontalHeaderItem(1)
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Xr", None));
         ___qtablewidgetitem22 = self.twNewtonRaphson.horizontalHeaderItem(2)
@@ -385,8 +433,40 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Newton Raphson", None))
         self.btnCalcularSecante.setText(QCoreApplication.translate("MainWindow", u"Calcular por Secante", None))
+        ___qtablewidgetitem24 = self.twSecante.horizontalHeaderItem(0)
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 de Iteracion", None));
+        ___qtablewidgetitem25 = self.twSecante.horizontalHeaderItem(1)
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"Xi-1", None));
+        ___qtablewidgetitem26 = self.twSecante.horizontalHeaderItem(2)
+        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
+        ___qtablewidgetitem27 = self.twSecante.horizontalHeaderItem(3)
+        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"f(Xi-1)", None));
+        ___qtablewidgetitem28 = self.twSecante.horizontalHeaderItem(4)
+        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"f(Xi)", None));
+        ___qtablewidgetitem29 = self.twSecante.horizontalHeaderItem(5)
+        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"Xi+1", None));
+        ___qtablewidgetitem30 = self.twSecante.horizontalHeaderItem(6)
+        ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Error", None));
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Ingrese Xi-1:", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), QCoreApplication.translate("MainWindow", u"M\u00e9todo de la Secante", None))
         self.btnCalcularSecanteModificada.setText(QCoreApplication.translate("MainWindow", u"Calcular por Secante Modificada", None))
+        ___qtablewidgetitem31 = self.twSecanteModificada.horizontalHeaderItem(0)
+        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 de Iteraci\u00f3n", None));
+        ___qtablewidgetitem32 = self.twSecanteModificada.horizontalHeaderItem(1)
+        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
+        ___qtablewidgetitem33 = self.twSecanteModificada.horizontalHeaderItem(2)
+        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"dxi", None));
+        ___qtablewidgetitem34 = self.twSecanteModificada.horizontalHeaderItem(3)
+        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"Xi + dxi", None));
+        ___qtablewidgetitem35 = self.twSecanteModificada.horizontalHeaderItem(4)
+        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"f(Xi)", None));
+        ___qtablewidgetitem36 = self.twSecanteModificada.horizontalHeaderItem(5)
+        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"f(Xi + dxi)", None));
+        ___qtablewidgetitem37 = self.twSecanteModificada.horizontalHeaderItem(6)
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Xi+1", None));
+        ___qtablewidgetitem38 = self.twSecanteModificada.horizontalHeaderItem(7)
+        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Error", None));
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Ingrese dxi:", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"M\u00e9todo de la Secante Modificada", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"M\u00e1ximo de Iteraciones:", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Ingrese la Tolerancia (%):", None))
