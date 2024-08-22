@@ -14,6 +14,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.btnCalcularPuntoFijo.clicked.connect(self.punto_fijo)
         self.ui.btnCalcularNewtonRaphson.clicked.connect(self.newton_raphson)
         self.ui.btnCalcularSecante.clicked.connect(self.secante)
+        self.ui.btnCalcularSecanteModificada.clicked.connect(self.secante_modificada)
         self.center()
     
     #Esta función centra el form en la pantalla
@@ -216,6 +217,45 @@ class MetodosNumericos(QMainWindow):
         
         for columna, value in enumerate(datos):
             self.ui.twSecante.setItem(fila, columna, QTableWidgetItem(str(value)))
+            
+    def secante_modificada(self):
+        funcion = self.ui.txtFuncionMA.text()
+            
+        Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)
+        dxi = round(float(self.ui.txtdxi.text()), 7)    
+        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        
+        iMax = int(self.ui.txtNIteracionesMA.text())
+        
+        
+        error = 100
+        i = 1
+        
+        self.ui.twSecanteModificada.setRowCount(0)
+        
+        while error > tolerancia and i <= iMax:
+            x_d = round(Xi + dxi, 7)
+            fxi = round(eval(funcion, {"x": Xi}), 7)
+            fx_d = round(eval(funcion, {"x": x_d}), 7)
+            
+            #X__1 = X+1
+            X__i = round(Xi - ((dxi*fxi)/(fx_d - fxi)), 7)
+            
+            error = round((abs((X__i - Xi)/X__i))*100, 7)
+            
+            self.añadir_datos_secante_modifica([i, Xi, dxi, x_d, fxi, fx_d, X__i, error])
+            
+            Xi = X__i
+                
+            i += 1
+
+    def añadir_datos_secante_modifica(self, datos):
+        fila = self.ui.twSecanteModificada.rowCount()
+        
+        self.ui.twSecanteModificada.insertRow(fila)
+        
+        for columna, value in enumerate(datos):
+            self.ui.twSecanteModificada.setItem(fila, columna, QTableWidgetItem(str(value)))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

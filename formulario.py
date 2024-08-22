@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario ParcialgXwOnV.ui'
+## Form generated from reading UI file 'Formulario ParcialJvWkyr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -306,6 +306,9 @@ class Ui_MainWindow(object):
         self.label_17 = QLabel(self.tab_8)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setGeometry(QRect(390, 20, 121, 21))
+        self.label_18 = QLabel(self.tab_8)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setGeometry(QRect(640, 20, 311, 16))
         self.tabWidget_3.addTab(self.tab_8, "")
         self.txtFuncionMA = QLineEdit(self.tab_2)
         self.txtFuncionMA.setObjectName(u"txtFuncionMA")
@@ -467,6 +470,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem38 = self.twSecanteModificada.horizontalHeaderItem(7)
         ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Ingrese dxi:", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"dxi es eficiente si ronda por 0.01", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"M\u00e9todo de la Secante Modificada", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"M\u00e1ximo de Iteraciones:", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Ingrese la Tolerancia (%):", None))
