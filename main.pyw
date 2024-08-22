@@ -29,7 +29,8 @@ class MetodosNumericos(QMainWindow):
         self.move(x, y)
     
     def biseccion(self):
-        #-0.6*x**2 + 2.4*x + 5.5       
+        #Función: -0.6*x**2 + 2.4*x + 5.5  
+        #Rango: [A=5, B=10]
         funcion = self.ui.txtFuncionMC.text()
         
         a = round(float(self.ui.txtA.text()), 7)
@@ -69,6 +70,8 @@ class MetodosNumericos(QMainWindow):
             self.ui.twBiseccion.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def falsa_posicion(self):
+        #Función: -0.5*x**2 + 2.5*x + 4.5  
+        #Rango: [A=0, B=7]
         funcion = self.ui.txtFuncionMC.text()
         
         a = round(float(self.ui.txtA.text()), 7)
@@ -112,6 +115,9 @@ class MetodosNumericos(QMainWindow):
             self.ui.twFalsaPosicion.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def punto_fijo(self):
+        #Función original: x**2 + 2x - 7
+        #Función despejada: 7/(x + 2)
+        #Aproximación inical: 0
         funcion = self.ui.txtFuncionMA.text()
             
         Xo = round(float(self.ui.txtAproximacionInicial.text()), 7)        
@@ -145,7 +151,8 @@ class MetodosNumericos(QMainWindow):
             self.ui.twPuntoFijo.setItem(fila, columna, QTableWidgetItem(str(value)))       
         
     def newton_raphson(self):
-        #x**5 + 3*x**2 + x
+        #Función: x**5 + 3*x**2 + x
+        #Aproximación inicial: -2
         funcion = self.ui.txtFuncionMA.text()      
         xo = round(float(self.ui.txtAproximacionInicial.text()), 7)
         tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)       
@@ -166,7 +173,7 @@ class MetodosNumericos(QMainWindow):
             
             error = round(abs((xr - xo)/xr) * 100,7)
             #error = abs((xActual - xAnterior)/xActual) * 100
-            self.añadir_datos_newton_raphson([i, xr, xo, error])
+            self.añadir_datos_newton_raphson([i, xo, xr, error])
             xo = xr      
             i += 1
     
@@ -179,6 +186,8 @@ class MetodosNumericos(QMainWindow):
             self.ui.twNewtonRaphson.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def secante(self):
+        #Función: 0.5*x**3 - 2*x**2 + 1
+        #Xi-1=0 y Xi=1
         funcion = self.ui.txtFuncionMA.text()
             
         Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)
@@ -219,6 +228,8 @@ class MetodosNumericos(QMainWindow):
             self.ui.twSecante.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def secante_modificada(self):
+        #Función: x**2 - 2
+        #Xi = 1 y dxi = 0.01
         funcion = self.ui.txtFuncionMA.text()
             
         Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)

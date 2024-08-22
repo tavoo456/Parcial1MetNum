@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario ParcialJvWkyr.ui'
+## Form generated from reading UI file 'Formulario ParcialNgIuMf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -419,7 +419,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem17 = self.twPuntoFijo.horizontalHeaderItem(1)
         ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Xo", None));
         ___qtablewidgetitem18 = self.twPuntoFijo.horizontalHeaderItem(2)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Xi", None));
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"g(Xo)", None));
         ___qtablewidgetitem19 = self.twPuntoFijo.horizontalHeaderItem(3)
         ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Para obtener resultado satisfactorios", None))
@@ -429,9 +429,9 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem20 = self.twNewtonRaphson.horizontalHeaderItem(0)
         ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 de iteraci\u00f3n", None));
         ___qtablewidgetitem21 = self.twNewtonRaphson.horizontalHeaderItem(1)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Xr", None));
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Xo", None));
         ___qtablewidgetitem22 = self.twNewtonRaphson.horizontalHeaderItem(2)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Xo", None));
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Xr", None));
         ___qtablewidgetitem23 = self.twNewtonRaphson.horizontalHeaderItem(3)
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Error", None));
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Newton Raphson", None))

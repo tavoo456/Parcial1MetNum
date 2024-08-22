@@ -570,7 +570,7 @@
         </column>
         <column>
          <property name="text">
-          <string>Xi</string>
+          <string>g(Xo)</string>
          </property>
         </column>
         <column>
@@ -682,12 +682,12 @@
         </column>
         <column>
          <property name="text">
-          <string>Xr</string>
+          <string>Xo</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Xo</string>
+          <string>Xr</string>
          </property>
         </column>
         <column>
