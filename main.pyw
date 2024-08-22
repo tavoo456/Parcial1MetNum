@@ -171,7 +171,7 @@ class MetodosNumericos(QMainWindow):
         self.ui.twNewtonRaphson.insertRow(fila)
         
         for columna, value in enumerate(datos):
-            self.ui.twNewtonRaphson.setItem(fila, columna, QTableWidgetItem(str(value)))  
+            self.ui.twNewtonRaphson.setItem(fila, columna, QTableWidgetItem(str(value)))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
