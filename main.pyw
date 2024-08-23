@@ -33,33 +33,44 @@ class MetodosNumericos(QMainWindow):
         #Rango: [A=5, B=10]
         funcion = self.ui.txtFuncionMC.text()
         
-        a = round(float(self.ui.txtA.text()), 7)
-        b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
+        a = self.ui.txtA.text()
+        b = self.ui.txtB.text()
+        tolerancia = self.ui.txtToleranciaMC.text()
         
-        iMax = int(self.ui.txtNIteracionesMC.text())
+        iMax = self.ui.txtNIteracionesMC.text()
         error = 100
         i = 1
         
-        self.ui.twBiseccion.setRowCount(0)
+        if funcion == "" or a == "" or b == "" or tolerancia == "" or iMax == "":
+            self.ui.lblAvisosMC.setText("Avisos: \nIngrese los datos correctamente.")
+        else:
+            a = round(float(a), 7)
+            b = round(float(b), 7)
+            tolerancia = round(float(tolerancia), 7)        
+            iMax = int(iMax)
+            
+            self.ui.twBiseccion.setRowCount(0)
         
-        while error > tolerancia and i <= iMax: 
-            m = round((a + b) / 2, 7)
+            while error > tolerancia and i <= iMax:
+                m = round((a + b) / 2, 7)
 
-            fa = round(eval(funcion, {"x": a}), 7)
-            fb = round(eval(funcion, {"x": b}), 7)
-            fm = round(eval(funcion, {"x": m}), 7)
+                fa = round(eval(funcion, {"x": a}), 7)
+                fb = round(eval(funcion, {"x": b}), 7)
+                fm = round(eval(funcion, {"x": m}), 7)
 
-            error = round(abs((b - a) / 2) * 100, 7)
+                error = round(abs((b - a) / 2) * 100, 7)
             
-            self.añadir_datos_biseccion([i, a, b, m, fa, fb, fm, error])
+                self.añadir_datos_biseccion([i, a, b, m, fa, fb, fm, str(error) + " %"])
             
-            if fa * fm < 0:
-                b = m
-            else:
-                a = m                      
-            
-            i += 1            
+                if fa * fm < 0:
+                    b = m
+                else:
+                    a = m                      
+
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(iMax) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(m))
+                
+                i += 1     
 
     def añadir_datos_biseccion(self, datos):
         fila = self.ui.twBiseccion.rowCount()
@@ -71,40 +82,50 @@ class MetodosNumericos(QMainWindow):
             
     def falsa_posicion(self):
         #Función: -0.5*x**2 + 2.5*x + 4.5  
-        #Rango: [A=0, B=7]
+        #Rango: [A=0, B=7]        
         funcion = self.ui.txtFuncionMC.text()
         
-        a = round(float(self.ui.txtA.text()), 7)
-        b = round(float(self.ui.txtB.text()), 7)
-        tolerancia = round(float(self.ui.txtToleranciaMC.text()), 7)
+        a = self.ui.txtA.text()
+        b = self.ui.txtB.text()
+        tolerancia = self.ui.txtToleranciaMC.text()
         
-        iMax = int(self.ui.txtNIteracionesMC.text())
-        
+        iMax = self.ui.txtNIteracionesMC.text()
         error = 100
         xrAnterior = 0
-        i = 1                  
+        i = 1 
         
-        self.ui.twFalsaPosicion.setRowCount(0)
-        
-        while error > tolerancia and i <= iMax: 
-            fa = round(eval(funcion, {"x": a}), 7)
-            fb = round(eval(funcion, {"x": b}), 7)
+        if funcion == "" or a == "" or b == "" or tolerancia == "" or iMax == "":
+            self.ui.lblAvisosMC.setText("Avisos: \nIngrese los datos correctamente.")
+        else:
+            a = round(float(a), 7)
+            b = round(float(b), 7)
+            tolerancia = round(float(tolerancia), 7)        
+            iMax = int(iMax)
             
-            xr = round(b - (fb*(b - a))/(fb - fa), 7)       
-            error = round(abs((xr - xrAnterior)/xr) * 100, 7)
+            self.ui.twFalsaPosicion.setRowCount(0)
             
-            xrAnterior = xr
-            
-            fxr = round(eval(funcion, {"x": xr}), 7)
-            
-            self.añadir_datos_falsa_posicion([i, a, b, xr, fa, fb, fxr, error])
-            
-            if fa * fxr < 0:
-                b = xr
-            else:
-                a = xr                      
-            
-            i += 1
+            while error > tolerancia and i <= iMax: 
+                fa = round(eval(funcion, {"x": a}), 7)
+                fb = round(eval(funcion, {"x": b}), 7)
+
+                xr = round(b - (fb*(b - a))/(fb - fa), 7)       
+                error = round(abs((xr - xrAnterior)/xr) * 100, 7)
+
+                xrAnterior = xr
+
+                fxr = round(eval(funcion, {"x": xr}), 7)
+
+                self.añadir_datos_falsa_posicion([i, a, b, xr, fa, fb, fxr, str(error) + " %"])
+
+                if fa * fxr < 0:
+                    b = xr
+                else:
+                    a = xr                      
+
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(iMax) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(xr))
+                
+                i += 1
             
     def añadir_datos_falsa_posicion(self, datos):
         fila = self.ui.twFalsaPosicion.rowCount()

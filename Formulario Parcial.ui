@@ -486,6 +486,19 @@
        <string>Ejemplo: x**5 + x**2 - 3*x + 1</string>
       </property>
      </widget>
+     <widget class="QLabel" name="lblAvisosMC">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>10</y>
+        <width>461</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Avisos:</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -1125,6 +1138,19 @@
         <width>113</width>
         <height>21</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblAvisosMA">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>10</y>
+        <width>441</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Avisos:</string>
       </property>
      </widget>
     </widget>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Formulario ParcialNgIuMf.ui'
+## Form generated from reading UI file 'Formulario ParcialEBtklr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -161,6 +161,9 @@ class Ui_MainWindow(object):
         self.label_10.setObjectName(u"label_10")
         self.label_10.setGeometry(QRect(90, 50, 271, 31))
         self.label_10.setFont(font)
+        self.lblAvisosMC = QLabel(self.tab)
+        self.lblAvisosMC.setObjectName(u"lblAvisosMC")
+        self.lblAvisosMC.setGeometry(QRect(700, 10, 461, 191))
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
@@ -347,6 +350,9 @@ class Ui_MainWindow(object):
         self.txtAproximacionInicial = QLineEdit(self.tab_2)
         self.txtAproximacionInicial.setObjectName(u"txtAproximacionInicial")
         self.txtAproximacionInicial.setGeometry(QRect(490, 120, 113, 21))
+        self.lblAvisosMA = QLabel(self.tab_2)
+        self.lblAvisosMA.setObjectName(u"lblAvisosMA")
+        self.lblAvisosMA.setGeometry(QRect(710, 10, 441, 161))
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -412,6 +418,7 @@ class Ui_MainWindow(object):
         self.btnCalcularFalsaPosicion.setText(QCoreApplication.translate("MainWindow", u"Calcular por Falsa Posici\u00f3n", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"M\u00e9todo de Falsa Posici\u00f3n", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Ejemplo: x**5 + x**2 - 3*x + 1", None))
+        self.lblAvisosMC.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"M\u00e9todos Cerrados", None))
         self.btnCalcularPuntoFijo.setText(QCoreApplication.translate("MainWindow", u"Calcular por Punto Fijo", None))
         ___qtablewidgetitem16 = self.twPuntoFijo.horizontalHeaderItem(0)
@@ -478,6 +485,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Ingrese la Funci\u00f3n:", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Ingrese la aproximaci\u00f3n Inicial:", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Xo:", None))
+        self.lblAvisosMA.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"M\u00e9todos Abiertos", None))
     # retranslateUi
 
