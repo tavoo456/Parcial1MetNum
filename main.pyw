@@ -41,6 +41,8 @@ class MetodosNumericos(QMainWindow):
         error = 100
         i = 1
         
+        self.ui.twBiseccion.setRowCount(0)
+        
         if funcion == "" or a == "" or b == "" or tolerancia == "" or iMax == "":
             self.ui.lblAvisosMC.setText("Avisos: \nIngrese los datos correctamente.")
         else:
@@ -49,8 +51,6 @@ class MetodosNumericos(QMainWindow):
             tolerancia = round(float(tolerancia), 7)        
             iMax = int(iMax)
             
-            self.ui.twBiseccion.setRowCount(0)
-        
             while error > tolerancia and i <= iMax:
                 m = round((a + b) / 2, 7)
 
@@ -68,7 +68,7 @@ class MetodosNumericos(QMainWindow):
                     a = m                      
 
                 if error<tolerancia or iMax == i:
-                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(iMax) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(m))
+                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(m))
                 
                 i += 1     
 
@@ -94,6 +94,8 @@ class MetodosNumericos(QMainWindow):
         xrAnterior = 0
         i = 1 
         
+        self.ui.twFalsaPosicion.setRowCount(0)
+        
         if funcion == "" or a == "" or b == "" or tolerancia == "" or iMax == "":
             self.ui.lblAvisosMC.setText("Avisos: \nIngrese los datos correctamente.")
         else:
@@ -101,8 +103,6 @@ class MetodosNumericos(QMainWindow):
             b = round(float(b), 7)
             tolerancia = round(float(tolerancia), 7)        
             iMax = int(iMax)
-            
-            self.ui.twFalsaPosicion.setRowCount(0)
             
             while error > tolerancia and i <= iMax: 
                 fa = round(eval(funcion, {"x": a}), 7)
@@ -123,7 +123,7 @@ class MetodosNumericos(QMainWindow):
                     a = xr                      
 
                 if error<tolerancia or iMax == i:
-                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(iMax) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(xr))
+                    self.ui.lblAvisosMC.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(xr))
                 
                 i += 1
             
@@ -136,15 +136,15 @@ class MetodosNumericos(QMainWindow):
             self.ui.twFalsaPosicion.setItem(fila, columna, QTableWidgetItem(str(value)))
             
     def punto_fijo(self):
-        #Función original: x**2 + 2x - 7
+        #Función original: x**2 + 2*x - 7
         #Función despejada: 7/(x + 2)
         #Aproximación inical: 0
         funcion = self.ui.txtFuncionMA.text()
             
-        Xo = round(float(self.ui.txtAproximacionInicial.text()), 7)        
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        Xo = self.ui.txtAproximacionInicial.text()       
+        tolerancia = self.ui.txtToleranciaMA.text()
         
-        iMax = int(self.ui.txtNIteracionesMA.text())
+        iMax = self.ui.txtNIteracionesMA.text()
 
         Xi = 0
         error = 100
@@ -152,16 +152,27 @@ class MetodosNumericos(QMainWindow):
         
         self.ui.twPuntoFijo.setRowCount(0)
         
-        while error > tolerancia and i <= iMax: 
-            Xi = round(eval(funcion, {"x": Xo}), 7)
+        if funcion == "" or tolerancia == "" or iMax == "" or Xo == "":
+            self.ui.lblAvisosMA.setText("Avisos: \nIngrese los datos correctamente.")
+        else:            
+            Xo = round(float(self.ui.txtAproximacionInicial.text()), 7)        
+            tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        
+            iMax = int(self.ui.txtNIteracionesMA.text())
             
-            error = round(abs(((Xi - Xo)/Xi)*100), 7)
+            while error > tolerancia and i <= iMax: 
+                Xi = round(eval(funcion, {"x": Xo}), 7)
             
-            self.añadir_datos_punto_fijo([i, Xo, Xi, error])
+                error = round(abs(((Xi - Xo)/Xi)*100), 7)
             
-            Xo = Xi
-                        
-            i += 1
+                self.añadir_datos_punto_fijo([i, Xo, Xi, str(error) + " %"])
+                
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMA.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(Xo))        
+                
+                Xo = Xi
+                i += 1
+        
     
     def añadir_datos_punto_fijo(self, datos):
         fila = self.ui.twPuntoFijo.rowCount()
@@ -174,29 +185,45 @@ class MetodosNumericos(QMainWindow):
     def newton_raphson(self):
         #Función: x**5 + 3*x**2 + x
         #Aproximación inicial: -2
-        funcion = self.ui.txtFuncionMA.text()      
-        xo = round(float(self.ui.txtAproximacionInicial.text()), 7)
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)       
-        iMax = int(self.ui.txtNIteracionesMA.text())
+        funcion = self.ui.txtFuncionMA.text()
+            
+        xo = self.ui.txtAproximacionInicial.text()       
+        tolerancia = self.ui.txtToleranciaMA.text()
+        
+        iMax = self.ui.txtNIteracionesMA.text()
+        
         error = 100
         xAnterior = 0.0
         i = 1
         
         self.ui.twNewtonRaphson.setRowCount(0)
         
-        while error > tolerancia and i <= iMax: 
-            resultado = round(eval(funcion, {"x": xo}), 7)
-            #x = sympy.symbols('x', real=True) # define la variable simbólica x
-            #diff sirve para sacar la derivada
-            derivada = sympy.diff(funcion,"x")
-            resultado_der = round(eval(str(derivada), {"x": xo}),7)
-            xr = round(xo - (resultado/resultado_der),7)      
+        if funcion == "" or tolerancia == "" or iMax == "" or xo == "":
+            self.ui.lblAvisosMA.setText("Avisos: \nIngrese los datos correctamente.")
+        else:  
+            xo = round(float(self.ui.txtAproximacionInicial.text()), 7)        
+            tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        
+            iMax = int(self.ui.txtNIteracionesMA.text())
             
-            error = round(abs((xr - xo)/xr) * 100,7)
-            #error = abs((xActual - xAnterior)/xActual) * 100
-            self.añadir_datos_newton_raphson([i, xo, xr, error])
-            xo = xr      
-            i += 1
+            while error > tolerancia and i <= iMax: 
+                resultado = round(eval(funcion, {"x": xo}), 7)
+                #x = sympy.symbols('x', real=True) # define la variable simbólica x
+                #diff sirve para sacar la derivada
+                derivada = sympy.diff(funcion,"x")
+                resultado_der = round(eval(str(derivada), {"x": xo}),7)
+
+                xr = round(xo - (resultado/resultado_der), 7)    
+            
+                error = round(abs((xr - xo)/xr) * 100, 7)
+            
+                self.añadir_datos_newton_raphson([i, xo, xr, str(error) + " %"])
+
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMA.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(xr))        
+                
+                xo = xr
+                i += 1
     
     def añadir_datos_newton_raphson(self, datos):
         fila = self.ui.twNewtonRaphson.rowCount()
@@ -211,12 +238,12 @@ class MetodosNumericos(QMainWindow):
         #Xi-1=0 y Xi=1
         funcion = self.ui.txtFuncionMA.text()
             
-        Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)
+        Xi = self.ui.txtAproximacionInicial.text()
         #X_i = Xi-1
-        X_i = round(float(self.ui.txtXi_1.text()), 7)    
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        X_i = self.ui.txtXi_1.text() 
+        tolerancia = self.ui.txtToleranciaMA.text()
         
-        iMax = int(self.ui.txtNIteracionesMA.text())
+        iMax = self.ui.txtNIteracionesMA.text()
 
         #X__i = Xi+1
         X__i = 0
@@ -225,21 +252,34 @@ class MetodosNumericos(QMainWindow):
         
         self.ui.twSecante.setRowCount(0)
         
-        while error > tolerancia and i <= iMax: 
-            fxi = round(eval(funcion, {"x": Xi}), 7)
-            fx_i = round(eval(funcion, {"x": X_i}), 7)
+        if funcion == "" or tolerancia == "" or iMax == "" or Xi == "" or X_i == "":
+            self.ui.lblAvisosMA.setText("Avisos: \nIngrese los datos correctamente.")
+        else:
+            Xi = round(float(Xi), 7)
+            #X_i = Xi-1
+            X_i = round(float(X_i), 7)    
+            tolerancia = round(float(tolerancia), 7)
+        
+            iMax = int(iMax)
             
-            X__i = round(Xi - (fxi*(X_i-Xi))/(fx_i-fxi), 7)
+            while error > tolerancia and i <= iMax: 
+                fxi = round(eval(funcion, {"x": Xi}), 7)
+                fx_i = round(eval(funcion, {"x": X_i}), 7)
             
-            error = round((abs((X__i-Xi)/X__i))*100, 7)
+                X__i = round(Xi - (fxi*(X_i-Xi))/(fx_i-fxi), 7)
             
-            self.añadir_datos_secante([i, X_i, Xi, fx_i, fxi, X__i, error])
+                error = round((abs((X__i-Xi)/X__i))*100, 7)
             
-            X_i = Xi
-            Xi = X__i
-                
-            i += 1
+                self.añadir_datos_secante([i, X_i, Xi, fx_i, fxi, X__i, str(error) + " %"])
 
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMA.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(X__i))
+                
+                X_i = Xi
+                Xi = X__i
+                
+                i += 1
+        
     def añadir_datos_secante(self, datos):
         fila = self.ui.twSecante.rowCount()
         
@@ -253,33 +293,45 @@ class MetodosNumericos(QMainWindow):
         #Xi = 1 y dxi = 0.01
         funcion = self.ui.txtFuncionMA.text()
             
-        Xi = round(float(self.ui.txtAproximacionInicial.text()), 7)
-        dxi = round(float(self.ui.txtdxi.text()), 7)    
-        tolerancia = round(float(self.ui.txtToleranciaMA.text()), 7)
+        Xi = self.ui.txtAproximacionInicial.text()
+        dxi = self.ui.txtdxi.text()
+        tolerancia = self.ui.txtToleranciaMA.text()
         
-        iMax = int(self.ui.txtNIteracionesMA.text())
-        
+        iMax = self.ui.txtNIteracionesMA.text()
         
         error = 100
         i = 1
         
         self.ui.twSecanteModificada.setRowCount(0)
         
-        while error > tolerancia and i <= iMax:
-            x_d = round(Xi + dxi, 7)
-            fxi = round(eval(funcion, {"x": Xi}), 7)
-            fx_d = round(eval(funcion, {"x": x_d}), 7)
+        if funcion == "" or tolerancia == "" or iMax == "" or Xi == "" or dxi == "":
+            self.ui.lblAvisosMA.setText("Avisos: \nIngrese los datos correctamente.")
+        else:
+            Xi = round(float(Xi), 7)
+            #X_i = Xi-1
+            dxi = round(float(dxi), 7)    
+            tolerancia = round(float(tolerancia), 7)
+        
+            iMax = int(iMax)
+        
+            while error > tolerancia and i <= iMax:
+                x_d = round(Xi + dxi, 7)
+                fxi = round(eval(funcion, {"x": Xi}), 7)
+                fx_d = round(eval(funcion, {"x": x_d}), 7)
             
-            #X__1 = X+1
-            X__i = round(Xi - ((dxi*fxi)/(fx_d - fxi)), 7)
+                #X__1 = X+1
+                X__i = round(Xi - ((dxi*fxi)/(fx_d - fxi)), 7)
             
-            error = round((abs((X__i - Xi)/X__i))*100, 7)
+                error = round((abs((X__i - Xi)/X__i))*100, 7)
             
-            self.añadir_datos_secante_modifica([i, Xi, dxi, x_d, fxi, fx_d, X__i, error])
-            
-            Xi = X__i
+                self.añadir_datos_secante_modifica([i, Xi, dxi, x_d, fxi, fx_d, X__i, str(error) + " %"])
+
+                if error<tolerancia or iMax == i:
+                    self.ui.lblAvisosMA.setText("Resultados: \nIteración final: " + str(i) + "\nError alcanzado: " + str(error) + " %\nRaíz: " + str(X__i))
                 
-            i += 1
+                Xi = X__i
+                
+                i += 1
 
     def añadir_datos_secante_modifica(self, datos):
         fila = self.ui.twSecanteModificada.rowCount()
